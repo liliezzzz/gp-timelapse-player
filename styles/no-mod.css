@@ -1,0 +1,77 @@
+#no-mod {
+  display: flex;
+  font-family: 'Nunito';
+  font-size: 40px;
+  color: #ffffffc2;
+  flex-wrap: wrap;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-content: center;
+  background: linear-gradient(215deg, #6e1fcf 0, #2ea3cf 85%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default;
+}
+
+#no-mod * {
+  user-select: text;
+}
+
+#no-mod *::selection {
+  background-color: #b39cff;
+}
+
+#no-mod > .wrapper {
+  width: 60%;
+  max-width: 825px;
+  z-index: 1;
+  line-height: 52px;
+  animation: no-mod-fade-in 0.8s ease-in;
+  padding: 20px;
+}
+
+#no-mod strong {
+  display: inline-block;
+  color: #ffdea6;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  background: #0000000a;
+  background: #7fc6ff1a;
+  color: #ffd691;
+}
+
+#no-mod a {
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1;
+  padding: 6px 10px;
+  border-radius: 4px;
+  margin-top: 20px;
+  color: #f7a4ff;
+  background: #ffffff14;
+  word-break: break-all;
+  transition: 0.4s;
+}
+
+#no-mod a:hover {
+  background: #ffffff08;
+}
+
+#no-mod a:active {
+  color: #f9beff;
+}
+
+@keyframes no-mod-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

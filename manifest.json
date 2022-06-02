@@ -1,0 +1,55 @@
+{
+  "id": "gp-timelapse-player",
+  "short_name": "GP Player",
+  "name": "GP Timelapse Player",
+  "icons": [
+    {
+      "src": "images/icons/app-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "images/icons/app-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/gp-timelapse-player/",
+  "background_color": "#476ecf",
+  "display": "standalone",
+  "description": "GP Timelapse Player",
+  "screenshots": [
+    {
+      "src": "images/screenshots/screenshot-p-1.png",
+      "type": "image/png",
+      "sizes": "754x420"
+    },
+    {
+      "src": "images/screenshots/screenshot-p-2.png",
+      "type": "image/png",
+      "sizes": "754x420"
+    }
+  ],
+  "file_handlers": [
+    {
+      "action": "/gp-timelapse-player/",
+      "accept": {
+        "image/gp-img": ".gpimg"
+      },
+      "icons": [
+        {
+          "src": "images/icons/gpimg-256.png",
+          "sizes": "256x256",
+          "type": "image/png"
+        }
+      ],
+      "launch_type": "single-client"
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+gpimg",
+      "url": "./?url=%s"
+    }
+  ]
+}

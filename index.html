@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GP Timelapse Player</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="./styles/fonts.css">
+  <link rel="stylesheet" href="./styles/no-mod.css">
+</head>
+
+<body>
+  <div id="no-mod"><div class="wrapper">Для просмотра процесса рисования Вам необходимо установить <strong>gp-mod</strong>. Сделать это можно перейдя по ссылке на Discord-сервер:<br><a target="_blank" href="https://discord.gg/hynZCVZyzN">discord.gg/hynZCVZyzN</a></div></div>
+
+  <script>
+    navigator.serviceWorker.register('/gp-timelapse-player/sw.js')
+      .then(function (registration) {
+        console.log('Service worker registered successfully')
+      }).catch(function (e) {
+        console.error('Error during service worker registration:', e)
+      })
+    navigator.registerProtocolHandler('web+gpimg', './?url=%s')
+  </script>
+</body>
+
+</html>
