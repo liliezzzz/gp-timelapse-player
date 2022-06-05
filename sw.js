@@ -1,8 +1,7 @@
 const cachePrefix = 'gp-player-'
-const cacheVersion = 'v1'
+const cacheVersion = 'v2'
 const cacheName = `${cachePrefix}${cacheVersion}`
 
-const HOSTNAME = 'liliezzzz.github.io'
 const PATHNAME = '/gp-timelapse-player'
 const BUNDLE_PATH = 'https://tictactoe11.github.io/gp'
 
@@ -29,7 +28,7 @@ const noCorsContent = [
 ]
 
 function isRemoteSourceURL(url) {
-  return url.startsWith(`https://${HOSTNAME}${PATHNAME}/?url=`)
+  return url.search.startsWith('?url=')
 }
 
 self.addEventListener('install', (e) => {
@@ -54,8 +53,12 @@ self.addEventListener('fetch', (e) => {
     try {
       const response = await fetch(e.request)
       const cache = await caches.open(cacheName)
+      const reqURL = new URL(e.request.url)
 
-      if (!isRemoteSourceURL(e.request.url)) {
+      if (
+        !isRemoteSourceURL(reqURL) &&
+        reqURL.hostname !== 'localhost'
+      ) {
         console.log(`[Service Worker] Caching new resource: ${e.request.url}`)
         cache.put(e.request, response.clone())
       }
