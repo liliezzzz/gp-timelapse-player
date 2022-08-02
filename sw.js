@@ -1,9 +1,9 @@
 const cachePrefix = 'gp-player-'
-const cacheVersion = 'v3'
+const cacheVersion = 'v4'
 const cacheName = `${cachePrefix}${cacheVersion}`
 
 const PATHNAME = '/gp-timelapse-player'
-const BUNDLE_PATH = 'https://tictactoe11.github.io/gp'
+const BUNDLE_PATH = 'https://gpmod.github.io/pub'
 
 const content = [
   `${PATHNAME}`,
