@@ -1,5 +1,5 @@
 const cachePrefix = 'gp-player-'
-const cacheVersion = 'v16'
+const cacheVersion = 'v19'
 const cacheName = `${cachePrefix}${cacheVersion}`
 
 const PATHNAME = '/gp-timelapse-player'
@@ -37,6 +37,10 @@ function isDiscordCDN(url) {
   return url.hostname === 'cdn.discordapp.com'
 }
 
+function isExtensionProtocol(url) {
+  return url.protocol === 'chrome-extension:'
+}
+
 self.addEventListener('install', (e) => {
   self.skipWaiting((async () => {
     const cache = await caches.open(cacheName)
@@ -63,6 +67,7 @@ self.addEventListener('fetch', (e) => {
 
       if (
         !isRemoteSourceURL(reqURL) &&
+        !isExtensionProtocol(reqURL) &&
         !isDiscordCDN(reqURL) &&
         reqURL.hostname !== 'localhost'
       ) {
