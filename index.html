@@ -14,7 +14,38 @@
 </head>
 
 <body>
-  <div id="no-mod"><div class="wrapper">Для просмотра процесса рисования Вам необходимо установить <strong>gp-mod</strong>. Сделать это можно перейдя по ссылке на Discord-сервер:<br><a target="_blank" href="https://discord.gg/hynZCVZyzN">discord.gg/hynZCVZyzN</a></div></div>
+  <script>
+    const L10N = {
+      'ru': {
+        'NO_MOD_MSG': [
+          'Для просмотра процесса рисования Вам необходимо установить',
+          'Сделать это можно перейдя по ссылке на Discord-сервер'
+        ]
+      },
+      'en': {
+        'NO_MOD_MSG': [
+          'To view the drawing process you need to install',
+          'You can do this by following this link to the Discord server'
+        ]
+      },
+      'es': {
+        'NO_MOD_MSG': [
+          'Para ver el proceso de dibujo necesitas instalar',
+          'Puedes hacerlo siguiendo el siguiente link al servidor de Discord'
+        ]
+      }
+    }
+
+    const DEFAULT_LANGUAGE = 'en'
+    const LANGUAGE = navigator.language.split('-')[0]
+    const L = L10N[LANGUAGE] ?? L10N[DEFAULT_LANGUAGE]
+
+    const warn = document.createElement('div')
+    warn.id = 'no-mod'
+    warn.innerHTML = `<div class="wrapper">${L.NO_MOD_MSG[0]} <strong>gp-mod</strong>. ${L.NO_MOD_MSG[1]}:<br><a target="_blank" href="https://discord.gg/hynZCVZyzN">discord.gg/hynZCVZyzN</a></div>`
+
+    document.body.appendChild(warn)
+  </script>
 
   <script>
     navigator.serviceWorker.register('/gp-timelapse-player/sw.js')
